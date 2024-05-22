@@ -24,4 +24,4 @@ _darcs
 
 
 #custom
-ubuntu
+after_ansible_install.sh
