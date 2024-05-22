@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install | sh -s -- -y
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 # install atuin
 cargo install atuin
