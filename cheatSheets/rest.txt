@@ -1,0 +1,69 @@
+-------------------------------------------------------
+set heap memory:
+node --max-old-space-size=10000 file.js
+-------------------------------------------------------
+jest test setup:
+npm init -y
+npm i --save-dev jest
+(npm i --save-dev puppeteer)
+to run: (change package.json -> scripts/test: 'jest --watchAll') or --coverage
+filename sum.js and for testfile = sum.test.js
+npm test	= to run
+-------------------------------------------------------
+typescript:
+npm install typescript
+npm install ts-node
+(-g = Global -d = Local)
+tsc app.ts --watch (-w)
+or
+tsc --init	== manage the whole projekt by typescript
+tsc --watch (-w)== watch every .ts file in projekt and compile
+all .ts to .js file if they change
+npx ts-node file.ts = to run file
+-------------------------------------------------------
+for react-ts setup:
+npx create-react-app foldername --template typescript
+-------------------------------------------------------
+tailwind:
+-npm install -D tailwindcss postcss autoprefixer vite
+-in package.json :
+"scripts": {
+        "dev": "vite"
+    },
+-u might need in tailwind.config.js:
+module.exports = {
+    content: ['./src/**/*.{html,js}', './index.html'],
+}
+-npx tailwindcss init -p
+to run: npm run dev
+to get the css from tailwind:
+npx tailwindcss -i ./css/tailwind.css -o ./dist/output.css
+-------------------------------------------------------
+tailwind: other way
+-npx tailwindcss init
+-u need in tailwind.config.js:
+    content: ['./build/**/*.{html,js}'],
+-put into a css file:
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+-get all tailwind css to normal css:
+	-npx tailwindcss -i ./src/input.css -o ./build/css/style.css
+-npm init -y
+-package.json scripts:
+"tailwind": "npx tailwindcss -i ./src/input.css -o ./build/css/style.css --watch"
+-npm run tailwind	= to run the script command
+-for tailwind class order in html
+	-npm i -D prettier-plugin-tailwindcss
+-------------------------------------------------------
+for netlify: if react
+add to package.json	=> CI=
+	    "build": "CI= react-scripts build",
+on netlify site when setting it up:
+Basic build settings:
+Build command:
+	-npm run build
+publish directory:
+	-build/
+-------------------------------------------------------
+module.exports = leetcode 	= for ts node testing

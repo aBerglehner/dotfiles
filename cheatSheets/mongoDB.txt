@@ -1,0 +1,71 @@
+mongosh		= enter db
+show dbs	= shows dbs
+use bookstore	= switched to test db
+show collections= shows collections
+.pretty()	= to format
+
+.pretty()	= to format
+db.books.insertOne({title: "hallo"}) = insert into books 
+db.books.insertMany([{},{}])	= insert many
+.updateOne()	= updates only the first match
+.updateMany()	= updates all matches
+.updateMany({search},{replace}) 
+.updateMany({"city": "Hudson"},{$inc": {"pop": 10}})  
+$inc	= increments
+$set	= updates to 
+$push: { <field1>: <value1>, ...} } = push to array
+
+db.collection.drop() = drops collections mentioned
+.deleteOne("_id:11") = only makes sens if u search for _id
+.deleteMany({search},{delete}) = deletes all who match the search
+
+db.books.find()	= outputs the first 20 
+it		= to iterate over the next 20
+db.books.find({author: "test"}) = gives back all books with author test
+db.books.find({author: "test"},{title:1, rating:1}) = second argument for what fields 
+						      u wanna get back
+(1 = include the fild, 0 = exclude the fild)
+(Use only 1s or only 0s)
+(exception "_id": 0 to exclude id)
+$elemMatch = matches documents that contain an array field
+.find({<array-field> : { "$elemMatch": {<field>: <value> }}})
+db.books.find({},{title:1, rating:1})	= everything in books but only
+					  the fields title and rating
+db.books.findOne({author: "test"})	= get the first one back what matches the find
+
+db.books.find().count()		= counts how many we get back
+db.books.find().limit(3)	= limits it to 3 what u get back
+db.books.find().sort({title: 1}) = sort it ascending order from title
+(sort({<field>: -1})		= for descending order
+(sort({<field>: -1,<field>:1}) = desc for first field ascending for 2 field
+-1	= sort it decending order
+db.books.find({rating: {$gt: 7}})= gt = greater than
+-lt	= less than
+-lte	= less than or equal
+-gte	= greater than or equal
+  
+.find({$or: [{rating: 6}, {pages: 350}]}) = looks if any one matches
+.find({$or: [{rating: {$gt: 7}}, {pages: {$lt 400}}]}) = rating greater than 7
+							or pages less than 400
+.find({rating: {$in: [7,8,9]}})	= rating is in array
+.find({rating: {$nin: [7,8,9]}})= rating is NOT in array
+.find({genres: {$all: ["fantasy","sci-fi"]}}) = genres has at least fantasy and sci-fi in it
+
+.find({"reviews.name": "luigi"}) = find book where reviews.name = luigi
+				 = need "" when u wanna access this way
+
+-array:
+{<array field> : { "$size": <number>}} = returns all documents with exactly this array size
+{<array field> : { "$all": <array>}} 	= returns all documents who had at least all the arrays
+-----------------------------------------------------------------
+Find all documents where airplanes CR2 or A81 left or landed in the KZN airport:
+db.routes.find({ "$and": [ { "$or" :[ { "dst_airport": "KZN" },
+                                    { "src_airport": "KZN" }
+                                  ] },
+                          { "$or" :[ { "airplane": "CR2" },
+                                     { "airplane": "A81" } ] }
+                         ]}).pretty()
+-----------------------------------------------------------------
+
+
+

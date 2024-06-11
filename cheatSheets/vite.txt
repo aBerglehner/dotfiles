@@ -1,0 +1,40 @@
+https://blog.logrocket.com/vite-3-vs-create-react-app-comparison-migration-guide/
+https://semaphoreci.com/blog/vite
+
+create vite:
+yarn create vite (and give name then and co)
+yarn create vite my-react-app --template react
+yarn create vite . --template react				= in current folder
+
+install dependencies:
+yarn
+
+starting:
+yarn run dev
+or:
+yarn run build/dev/preview
+
+-------------------------------------------------------------------
+react testing video: https://www.youtube.com/watch?v=bvdHVxqjv80
+vitest video: https://www.youtube.com/watch?v=7f-71kYhK00
+
+to include Vitest: https://eternaldev.com/blog/testing-a-react-application-with-vitest/
+	yarn add -D vitest
+	yarn add jsdom (-D jsdom @testing-library/react)
+
+modify package.json
+	in "scripts": {
+		"test": "jest"
+	}
+modify vite.config.js
+	test: {
+		globals: true,
+		environment: 'jsdom',
+	},
+
+every file u need to import:
+	import { describe,expect,it } from "vitest";
+	import {render, screen} from '@testing-library/react';
+
+to run tests: 
+	yarn test

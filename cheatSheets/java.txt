@@ -1,0 +1,68 @@
+// Array can hold primitives and objects
+int[] varName = new int[4];
+String[] varName = new String[4];
+String[] varName = {"John","Alex","Sepp"};
+// get index
+varName[index];
+// get length
+varName.length;
+
+
+// dynamic Array: can only hold objects
+// but supports wrapper types for primitives
+import java.util.ArrayList;
+ArrayList<String> varName = new ArrayList<>();
+ArrayList<String> varName = new ArrayList<>(Arrays.asList('a','b'));
+ArrayList<Integer> varName = new ArrayList<>();
+ArrayList<Boolean> varName = new ArrayList<>();
+// get index 
+varName.get(index);
+// get length
+varName.size();
+// add to the end
+varName.add('name');
+// set element at index X
+varName.set(index, 'name');
+// remove an element
+varName.remove('name');
+
+-StringBuilder myStr = new StringBuilder;= constructs a string
+myStr.append('str');
+-StringBuilder newStr = new StringBuilder(str); = reverse string
+return newStr.reverse().toString();
+
+str.substring(1, i.length())) 	= substring start include end exclude
+String.charAt(int);		= str at postion X returns a character
+Character.toString(str.charAt(currPos)); = returns a String
+String.valueOf(int);  		= converts number to string
+str.split("");			= split string to array
+String.valueOf(num).split("");	= conversts num to string and converts it String[]
+strDigits.toCharArray();	= converts this string into character array
+return x.replace(" ", "");	= removes spaces
+
+
+Character.digit(char,radix);	= converts str to radix
+Integer.parseInt(array[i]);	= convert to int returns int primitive
+Integer.valueOf(String.join("", array)); = converts to int returns Integer object
+
+Integer.MAX_VALUE;		= max value
+Integer.MIN_VALUE;		= min value
+
+
+String.format("%d %d", max, min); = output string of 2 digits
+
+stream:
+-import java.util.Arrays;
+Arrays.stream(arr).filter(v -> v > 0).sum();	= sum all nums in arr > 0
+-import java.util.List
+return list.stream().filter(e -> e instanceof Integer).toList(); = filters integer out of list
+-str.toLowerCase().chars().distinct().count();	
+-long countX = str.toLowerCase().chars().filter(ch -> ch =='x').count();
+-import java.util.Arrays;
+return Arrays.stream(s.split(" ")).mapToInt(String::length).min().getAsInt();
+-return Arrays.stream(phrase.split(" "))
+                   .map(i -> i.substring(0, 1).toUpperCase() + i.substring(1, i.length()))
+                   .collect(Collectors.joining(" "));	= makes first letter of word in string uppercase
+
+-import java.util.stream.IntStream;
+return IntStream.of(args).min().getAsInt();

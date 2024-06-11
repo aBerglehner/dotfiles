@@ -1,0 +1,76 @@
+new stuff:
+git add -A	= add all in current repository
+git add -p	= only add part of the changes
+git add -e	= see and edit all changes u wanna stage
+git add -e file	= see and edit all changes u wanna stage
+
+git commit -v	= see and write u commit message
+git commit --amend --no-edit = add to last commit
+git commit --amend -m 'message' = update last commit message
+
+git show	= see last commit
+git reset .	= undo last stage(add)
+git restore .	= to delete last changes since last commit
+
+git reset --hard HEAD~1 = go back 1 history and undo everything till then
+
+git log -S 'search'	= search for in log
+
+git stash	= adds all changes after commit to stash and goes back to last commit
+git pop		= brings back last stash
+
+git branch -vv	= all branches with more info
+git branch -vv | awk '/search/{print $1}' | xargs git branch -d	= delete all matched branches
+
+----------------------------------------------------------------
+
+
+- git config --global -e	== config file 
+- git config -h 		== quick help overview
+- git rm text.txt		== working directory and staging area
+- git mv file1.txt main.js	== renaim file (here to main.js)
+- git ls-files 			== shows files from staging area
+- git difftool --staged	or file	== for comparing in vscode
+- .gitignore			== all file or pathname in this file will be ignored
+
+Staging and committing in Git:
+- git init 			== initializing a repository
+- git add file.txt (. for all)	== add to staging area
+- git status -s			== short status from staging area
+- git commit -m "Message" -m "m"== add to git
+- git commit -am "message" 	== !!only works for M files!! add and commit file 
+- git branch -M main		== creates main and change to it 
+- git reset filename or without == unstage the file or everything
+- git reset --mixed HEAD^	== unstages the changes after commit
+- git log			== shows logs
+- git reset commit Hash  	== brings u back
+- git reset HEAD~    
+- git rm -r --cached .		== if u add something to gitignore
+				   that is already on github
+
+github push:
+- git branch -M main		=== change branch before to main
+- git remote add origin "ssh link" == sets up connection to github
+- git push -u origin main	== push up to github
+- git push			== after first push 
+
+github cloning:
+- git clone "ssh link"		== cloning a repository to u local maschine
+
+github pull: 
+git pull origin master 		== pull updated version from github
+
+github see changes before pull:
+- git fetch
+- git log origin/branch
+- git log head.. origin/branch	= see last change
+
+github branch:
+- git checkout -b description-text == creating a new branch
+- git checkout master		== switching branch
+- git branch			== see all branches
+- git branch -d name		== delete branch
+- git merge branch 		== merges the branch into current branch
+- git merge -Xignore-all-space branch == merges branch into current branch and ignores spaces
+
+

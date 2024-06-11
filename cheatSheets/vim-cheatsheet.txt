@@ -1,0 +1,193 @@
+set to use more often:
+
+vim .	= shows cur folder files and folders
+gv	= reselect last select
+#	= search word reverse where selector is 
+
+mletter	= sets marker
+mCapital= sets file marker
+'letter = jumps to beginning of line marker
+
+P	= to paste code before / above
+cgn	= change after / or * and repeat it with .
+"0p	= pasting from register
+cit	= jump in html tag
+cs"'	= change every " in line to ' (also for brackets)
+
+[{      = jump to start of current code block
+]}      = jump to end of current code block
+vit	= selects in tags
+
+=ap	= formats the paragraph
+==	= formats line
+V=	= formats selected text
+
+CTRL-O 	= go back where u came from
+CTRL-I	= goes forward
+''	= position before last jump
+g;	= loaction of last change
+g,	= location of next change
+
+######################################################
+######################################################
+vim cheatsheet:
+vim .		= shows cur folder files and folders
+:e CTRL-D	= shows every command that beginns with e
+tab		= auto complete
+v		= put u in visual mode to highlight
+ctrl v		= block visual mode (vertical) 
+
+:wq 		= save and exit
+:q!		= exit and discard changes
+:w filename	= save the file with ::the filename
+v :w filename	= save the highlighted lines to filename(only lines)
+:!command(ls)	= execute external command
+:r filename	= to insert the content of file
+:r !ls		= insert the output of ls into the file
+:e /path/to/file= open new file
+
+*	= search next word occurence
+#	= search word reverse where selector is 
+.	= repeat last change
+:6t.	= copy line 6 below current line
+:t6	= copy current line below line 6
+strg-w s	= split window horizontally
+strg-w v	= split window vertical
+''	= position before last jump
+g;	= loaction of last change
+g,	= location of next change
+
+e	= end of next word
+w	= beginning of next word
+b	= beginning of previous word
+f letter= forward to letter
+F letter= backward to letter
+;	= repeat last f search
+0	= move to beginning of line
+^	= move to first nonblank char of line
+_	= jumps beginning of line
+$	= jumps to end of line
+o in visual mode = jumps between ends
+
+
+i	= insert before
+I	= insert at beginning of line
+a 	= apend after
+A	= apend at line end
+o	= open a line after cursor and put you in insert mode
+O	= open a line before cursor and put you in insert mode
+
+dd	= delete line(2dd)
+dw 	= deletes till word end(d2w)
+daw 	= deletes word
+D	= delete to the end of line (d2$)
+dap	= delete a paragraph
+x 	= deletes character at position
+r	= replace character at position
+R	= replace more than one character
+cl	= delete char and set in insert mode
+cw	= deletes till word end and allows changes
+ciw	= deletes word and sets in insert mode
+C	= deletes to the end of line and allows changes
+cs"'	= change every " in line to ' (also for brackets)
+
+J	= joins to lines
+
+gu (gU)	= all selected to lower case / upper case
+gUaw	= uppercase word
+
+p	= put previously deleted text line after cursor
+"0p	= pasting from register
+y	= copy something
+Y	= copy a line
+-number before v/y/d will change what u do
+-2vi{ 	= visualize 1 scope out of it
+yw	= copy something till the end of word
+yaw	= copy word
+yi(	= copy everything in brackets
+ya(	= copy everything and the brackets
+gv	= reselect last select
+yte	= copy till something
+vit	= selects in tags
+vi(	= selects everything in a bracket <>{}[]
+viw 	= selects the hole word
+vte	= selects till somethings
+di(	= deletes everything in brackets <>{}[]
+da(	= deletes everything and the bracket <>()[]
+dt>	= deletes till something
+bsp yi( fD vi( p	= copy everthing in brackets,
+			jumps to next D visuals the hole word
+			and overwrite it with the copy 
+
+:s/old/new/g	= to substitue new for old in the line
+:4,9s/old/new/g	= to substitue every occurence from line 4 to 9
+:%s/old/new/g	= change every occurence in the file
+:%s/old/new/gc	= same as above but with prompt whether to subsitute or not
+
+CTRL-g	= file status
+gg	= top of file
+G	= bottom of file
+line G	= jump to x line number
+
+
+cgn	= change after / or * and repeat it with .
+/search	= search for something
+*	= search word where selector is
+n	= to move to next search
+N	= to move to pevious search
+
+u	= undo 
+CTRL-r	= redo
+CTRL-O 	= go back where u came from
+CTRL-I	= goes forward
+{	= walks up by paragraph
+}	= walks down by paragraph
+ctrl+d	= jumps half a page down
+ctrl+u	= jumps half a page up
+ctrl+e	= move view down
+ctrl+y 	= move view up
+zz	= center view
+H       = Jump to TOP of screen
+M       = Jump to MIDDLE of screen
+L       = Jump to BOTTOM of screen
+[{      = jump to start of current code block
+]}      = jump to end of current code block
+gd      = jump to var declaration 
+gf	= go to file
+
+q r	= start record macro and bound it to 2
+(end it with q)
+5@r	= repeat makro 5 times
+%	= to find matching ),] or }
+<<	= 1 tab nach links
+>>	= 1 tab nach rechts
+:3,40>	= line 3 to 40 indent(einrücken) 
+
+mletter	= sets marker
+mCapital= sets file marker
+'letter = jumps to beginning of line marker
+
+:noh 	= temporarily disable search highlighting until the next search
+:set ic		= to ignore case at searching
+:set noic	= to remove ignore case
+:set hls	= to highlight
+:set nohls	= to remove highlight
+/search\c	= ignore one time case
+:set relativenumber
+:set rnu	= set relative line number
+:set number	= for setting number
+:set rnu number = get relative and current line number
+:set norelativenumber
+:set nornu	= disable relative line number
+
+:help		= to get in help menu
+CTRL-W 	CTRL-W 	= to switch window
+:help w		= to find out more about w
+:q		= to leave help menu
+:help insert-index	= 
+:help user-manual	= get in manualn
+
+/\v	= regex (characters take on special meaning)
+/\V	= very nomagic (CANCEL OUT MOST OF THE SPECIAL MEANINGS)
+\zs	= marks the start of a match
+\ze	= marks the end of a match

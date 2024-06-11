@@ -1,0 +1,19 @@
+site:stackoverflow.com message	== only search on this site
+related:stackoverflow.com	== findes related sites
+filetype:pdf learn css		== looks for pdf 
+"ember.js tutorials"		== put them together to search for
+ecmascript 2018..2021		== .. for ranges
+vuejs after:2020 (before:2020)	== search by date 
+react tutorial -classes		== minus for exclude some word
+react OR vue			== logical operator
+
+chrome shortkeys
+ctrg + tab	= next tab
+ctrg + shift + tab = prev tab
+ctrg + 1-8	= tabs
+ctrg + 9	= last tab
+ctrg + t	= new tab
+ctrg + shift + t = open last closed tab
+ctrg + w	= close tab
+ctrg + l	= addressbar search
+ctrg + k 	= google search

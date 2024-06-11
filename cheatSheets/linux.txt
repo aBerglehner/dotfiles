@@ -1,0 +1,219 @@
+new:
+tldr awk    = shows samples
+btop        = better htop
+jq          = json query
+(curl localhost:8080 | jq . | less = see formated json)
+
+
+-----------------------------------------------------------------------------------------------------
+shortkeys:
+- super + enter 	= terminal
+- super + shift + c 	= close window
+- super + p		= rofi (open any programm)
+- super + s		= rofi ssh
+- alt + tap		= switch between programms
+- super + ,		= settings
+- super + e		= explorer
+- super + b		= cycle through open windows
+- super + v		= cycle backwards through open windows
+- super + 5 		= webbrowser
+- super + shift + l	= log out
+- super + w		= console new window in same path
+- strg + alt + right 	= switch workspace
+- strg + alt + j/k/l/;/h   = switch to workspace 1-5
+- alt + super + left/right = move window to left/right workspace
+- alt + super + j/k/l/;/h  = move window to workspace 1-5
+
+
+console shortkeys: 
+- alt b		= back one word 
+- alt f		= forward one word 
+- alt d		= delete forward one word
+- strg a bzw e			== anfang der zeile / ende der zeile
+- strg w = del 1 word left	 | strg y = paste last del
+- strg u = del left side of line | strg k = del right side of line
+- strg r			== history search
+
+
+own alias: 
+- aptup		= sudo apt update && sudo apt upgrade == for upgrade weekly
+- setA 		= vim ~/.bashrc
+- sai		="sudo apt install"
+- sar		='sudo apt remove'
+- sau		='sudo apt upgrade'
+- myip		="curl --silent https://ipecho.net/plain; echo"
+- off		="shutdown -h now"
+## find out which commands you use most often
+- favHistory	='history | awk "{print $2}" | sort | uniq -c |sort -rn | head'
+## get top process eating memory
+- psmem		='ps auxf | sort -nr -k 4'
+- psmem10	='ps auxf | sort -nr -k 4 | head -10'
+## get top process eating cpu ##
+- pscpu		='ps auxf | sort -nr -k 3'
+- pscpu10	='ps auxf | sort -nr -k 3 | head -10'
+# navigation
+- ..		='cd ..'
+- ...		='cd ../..'
+- .3		='cd ../../..'
+- .4		='cd ../../../..'
+- .5		='cd ../../../../..'
+# the terminal rickroll
+- rr		='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
+
+usefull stuff:
+- !! = last command line	| alt . = previous command
+- !<string>	= repeat the last command that started with a given string
+- ^<sting1>^<string2>^	= swap from previous command string1 to string2
+- !$	= last word form previous command
+- !#:N	= reference a word of the current command and reuse it
+- script	/ exit 	= save a copy of your command line session
+
+
+commands:
+- echo "alias grpe='grep'" >> ~./bashrc == sets an alias in bashrc
+- man command			== see all flags for a command
+- vimtutor			== learn vim
+- code .			== opens vs studio in the directory
+- apropos command		== to get every command near to that
+- cd -				== always goes into last directory 
+- history (!number to run)	== history of commands
+- pwd				== shows directory where u in
+- ls -lah			== shows also hidden Folders and Files
+- touch file1.txt		== create file
+- vim file2.txt			== create file also opens for edit
+- echo text > path/filename.js  == writes or creates a file
+- echo text >> filename.js	== >> = attach it at the end of the file
+- cat				== output file visual in terminal
+- bat (batcat)			== output file with syntax highlight 
+- more filename 		== older version from less
+- less	filename		== for longer files to read
+- head filename			== print default first 10 lines
+- tail filename			== print default last 10 lines
+- mkdir				== create folder
+- mkdir -p folder/{1..10}/{1..5}== create folder and subfolder dynamic
+- rmdir 			== remove empty directory
+- rm -rf directory		== !!aufpassen!! remove recusive and force 
+- rm file.txt			== remove file
+- mv file1.txt test/		== moves file to folder test/
+- mv file1.txt file2.txt	== renames file
+- cp test.txt test/		== copy files 
+- cp -avr folder/ newFolder/	== copy folder 
+- chmod				== change file permissions
+- strg Z 			== stop it
+- bg				== puts it in the background
+- fg				== gets u back into a stopped process
+- shopt -s dotglob          == makes wildcard match dot files
+- mv folder_to_empty/* .    == moves everything from folder into current directory
+- journalctl -n 20 == shows system logs
+
+- xargs			== pass standard input as an argument to another command
+(-n 2 = words per line | -n 2 -0  = split on null chars | -d ":" = change delimiter)
+seq 10 | xargs -I {} touch {}.txt = creates 10 files num.txt(4.txt,6.txt) 
+(-I placeholder for every argument)
+
+-grep -in searchPattern file.txt = print lines that match patterns 
+(i = groß und kleinschreibung; n = linenumber, -w = only whole words;
+(grep -inB 3 'pattern' file.txt)
+C 3 = 3 lines before and after; A 3 = 3 lines after; B 3 = before; 
+-c = how many lines contains the search pattern
+r = alle unterverzeichnisse am besten ohne file name zum schluss
+-o = print only matched parts of line, with each part on a separate line) 
+
+-awk -F "," '/search/ {print $1, $4}' file.txt = print out only the lines that match the search pattern and only columns 1 and 4
+(NF = number of columns | -F "," = changes field separator(default is empty string)
+{print $1 ":" $4 ":" $5} = makes : as seperator between)
+awk 'length($0) > 7' file	= only lines greater than 7 characters
+awk 'BEGIN { for(i=1; i <= 10; i += 1) print "square root of", i, "is", i*i;}' =
+square root 1 is 1....
+ps -ef | awk '{ if($NF == "search") print}' = print last field if name is search
+awk '$1 ~ /^[b,c]/ {print}' file = print out where beginning of column 1 start with b or c
+awk '{print substr($0, 4)}' file = print every line starting at 4 character
+awk '{print substr($0, 4,3)}' file = print every line starting at 4 character and the next 3 chars
+df | awk 'NR==7, NR==11 {print NR, $0}' = print line 7 to 11
+awk 'NR < 13' file	= print line 1 to 12
+awk '$1 ~ /search/ {print $0}'	= if column 1 matches search print hole line
+awk '$1 !~ /search/ {print $0}'	= if column 1 not matches search print hole line
+awk 'NR != 1 {print $0}'	= if line not first line print line
+awk 'NR > 13 && /^\*/' file	= print lines after 13 when regex matches
+
+-sed 's/search/replace/' file.txt > newFile.txt = search and replace something in file.txt
+(change every first occurence on a line;
+'s/search/replace/g' changes every (global);
+sed '/alex/s/search/replace/' file.txt = every line which has 'alex' and 'search' change it
+sed '/search/d' file	= search for lines with search and delete line
+sed '/^$/d' file	= deletes every empty line
+-i = write to the same file)
+sed -i 's/ *$//' file	= get rid of all extra spaces at the end of a line
+sed -i 's/[[:space:]]*$//' file	= get rid of all tabs at the end of a line
+
+-cut -c 1-10 file.txt		= gives u the first 10 chars of every line of file/input
+-cut -c 11- file.txt		= gives u every line from char 11 and after
+-more file | tr 'a' 'A'		= translate every 'a' to uppercase 'A'
+-more file | tr 'aeio' 'AEIO'	= to demonstrate that it dont looks for string
+				  only for characters
+-more file | tr -d 'aeio'	= deletes every a,e,i,o which it finds
+-more file | tr -s 'aeio ' 	= deletes every double or more charactar in a row 
+- command | tr -d '""'		= removes all quotes from output
+
+-diff -y file file2		= compare lines of text files (-y side-by-side)
+-wc -w filename			= count lines, words and bytes
+(-l = lines, -w = words, -c = bytes, -L = length of longest line, 
+wc -l < file = cuts filename in output)
+
+-sort filename			= sort lines within text files
+sort -t : -k 3n filename 	= seperator is : and sort it numeric by 3 column
+sort -rn -k 3 filename		= sorts 3 column numeric and reversed
+(-r = reverse sort, -n = numberic, -o newFileName fileUWannaSort)
+
+-uniq filename			= files adjacent matching lines from input
+sort filename | uniq -c = counts how often a line appear
+sort filename | uniq -u	= output only uniq lines
+(-d = duplicated lines)
+
+-whereis programm		= shows location
+-locate string u search		= shows file/dir where searchstring appears
+-sudo updatedb 			= to update locate
+-find ./folder -iname 'string'	= shows every file with in this folder with string name
+(name = search for filename i = ignore case)
+dpkg -L maven  = find where maven was installed
+
+-shuf				= shuffles the lines random in a file
+-seq 10				= print out 1 to 10
+seq 2 4				= print 2,3,4
+(-n 3 -i 1-10 --repeat = 3 numbers between 1-10 which can be repeated)
+- column -t			== get columns
+(-s = seperator = -s : = to have : as seperator)
+- basename (home/dt/file.txt)	= strips the last thing out = file.txt
+- ps -auxf			= snapshot of the current processes
+- kill (killall) id		== to kill programm
+- killall -9 name		= kill process
+- xkill				== anything u click next will be killed
+
+- uptime			= uptime
+- last 				= all users logged in and out since the file /var/log/wtmp was created
+- w				== see who is logged in etc
+- hostname			= name
+- uname -a			= name,version etc
+- ifconfig			= ip 
+- ip addr show			= ip
+- df -h				= all filesystem and space
+- du -sh ordner			= space taken in dir
+- netstat -tulpn		= see all open ports
+- htop              = taskmanger
+- wrk -t12 -c400 -d30s http://127.0.0.1:8080/index.html   = http benchmarking
+
+
+-hollywood			= film terminal (hacking)
+-cmatrix -a			= get a nice visual matrix
+- ping -c 1 google.com		== to check internet connection (c=counter)
+- wget https://somelinux.com/   == download something from url
+- date	/ cal			== date / calender
+- bc				== calculator
+-neofetch			= shows linux version,uptime,usw
+-crunch min-len max-le charsetString -o name.txt = generate wordlists from a character set
+
+
+-strg + alt + f1 		= tty1 
+-strg + alt + f7		= brings u back from tty1 
+

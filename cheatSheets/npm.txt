@@ -1,0 +1,6 @@
+npm list package	= show dependency graph for package
+npm list --depth=2 -g = show full dependency graph global packages
+npm list --prod		= show packages in the dependencies
+npm outdated		= show current | wanted | latest versions
+npm update		= update all to wanted
+npm update all		= update all even when use caret^ to new major version

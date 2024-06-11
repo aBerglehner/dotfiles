@@ -1,0 +1,39 @@
+debugger = stops code where it stands
+
+-if check:
+const x = 1
+console.assert(x === 1, "X is not 1")  // prints nothing 
+const y = 1
+console.assert(y === 0, "Y is not 1") // Y is not 1
+
+-table:
+console.table(["apples", "oranges", "bananas"]);
+
+-grouping: 
+console.log("This is the outer level");
+console.group("First group");
+console.log("In the first group");
+console.group("Second group");
+console.log("In the second group");
+console.warn("Still in the second group");
+console.groupEnd();
+console.log("Back to the first group");
+console.groupEnd();
+console.debug("Back to the outer level");
+
+-warning: 
+console.warn("this is a warning");
+-error:
+console.error("this is a error");
+
+-time measure: name in () must be the same!!!
+console.time("answer time");
+alert("Click to continue");
+console.timeLog("answer time");
+alert("Do a bunch of other stuff...");
+console.timeEnd("answer time");
+
+-Styling console output
+-You can use the %c directive to apply a CSS style to console output:
+console.log("This is %cMy stylish message", "color: yellow; background-color: blue");
+
