@@ -1,0 +1,42 @@
+let mapleader = " "
+set number relativenumber
+set idearefactormode=keep
+set surround
+set ideajoin
+set scrolloff=8
+set colorcolumn=120
+
+
+set incsearch=true
+set hlsearch=false
+
+nnoremap <C-j> :m +1 <CR>
+nnoremap <C-k> :m -2 <CR>
+
+
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+nmap n nzzzv
+nmap N Nzzzv
+
+
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>y "+yy
+nmap <leader>p "+p
+nmap <leader>p "+p
+vmap <leader>P "+P
+vmap <leader>P "+P
+
+nmap H :action PreviousTab<CR>
+nmap L :action NextTab<CR>
+nmap <leader>bd :action CloseEditor<CR>
+
+set NERDTree
+let g:NERDTreeMapJumpParent='h'
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <C-h> :NERDTreeFocus<CR>
+
+
+set highlightedyank
+let g:highlightedyank_highlight_duration = "600"
