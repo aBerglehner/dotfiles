@@ -12,3 +12,8 @@ cargo install atuin
 # Install zoxide
 echo 'Installing zoxide...'
 cargo install zoxide --locked
+
+# Install docker desktop
+echo 'Installing docker desktop 4.30.0  ...'
+wget https://desktop.docker.com/linux/main/amd64/docker-desktop-4.30.0-amd64.deb
+sudo apt install ./docker-desktop-*-amd64.deb
