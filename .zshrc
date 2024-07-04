@@ -205,6 +205,7 @@ alias tma='tmux attach -t'
 alias tmn='tmux new -s'
 alias tmm='tmux new -s main'
 alias ttldr='$HOME/tmux-cht.sh'
+alias tks='tmux kill-server'
 
 #shell startup speed
 alias perfStartup='for i in $(seq 1 10); do time $SHELL -i -c exit; done'
