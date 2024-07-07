@@ -18,6 +18,8 @@ echo 'Installing docker desktop 4.30.0  ...'
 wget https://desktop.docker.com/linux/main/amd64/docker-desktop-4.30.0-amd64.deb
 sudo apt install ./docker-desktop-*-amd64.deb
 
+# Install alacritty dependencies
+apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 # Install alacritty
 cargo install alacritty
 # Set alacritty as default terminal
