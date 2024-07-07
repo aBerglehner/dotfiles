@@ -17,3 +17,9 @@ cargo install zoxide --locked
 echo 'Installing docker desktop 4.30.0  ...'
 wget https://desktop.docker.com/linux/main/amd64/docker-desktop-4.30.0-amd64.deb
 sudo apt install ./docker-desktop-*-amd64.deb
+
+# Install alacritty
+cargo install alacritty
+# Set alacritty as default terminal
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50
+sudo update-alternatives --config x-terminal-emulator
