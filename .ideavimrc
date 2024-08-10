@@ -7,6 +7,10 @@ set scrolloff=8
 set colorcolumn=120
 
 
+set ignorecase
+set smartcase
+set ideamarks
+set ideaput
 set incsearch=true
 set hlsearch=false
 
@@ -32,6 +36,25 @@ nmap H :action PreviousTab<CR>
 nmap L :action NextTab<CR>
 nmap <leader>bd :action CloseEditor<CR>
 
+nmap <leader><leader> :action GotoFile<CR>
+nmap <leader>/ :action FindInPath<CR>
+nmap <leader>sg :action FindInPath<CR>
+nmap <leader>fr :action RecentFiles<CR>
+nmap <leader>sl :action RecentLocations<CR>
+
+nmap <C-e> :action ShowBookmarks<CR>
+nmap <leader>a :action ToggleBookmark<CR>
+
+nmap <leader>g :action Git.Menu<CR>
+nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+
+nmap gI :action GotoImplementation<CR>
+
+nmap ]e :action GotoNextError<CR>
+nmap [e :action GotoPreviousError<CR>
+
+
+
 set NERDTree
 let g:NERDTreeMapJumpParent='h'
 nnoremap <leader>e :NERDTreeToggle<CR>
@@ -40,3 +63,4 @@ nnoremap <C-h> :NERDTreeFocus<CR>
 
 set highlightedyank
 let g:highlightedyank_highlight_duration = "600"
+
