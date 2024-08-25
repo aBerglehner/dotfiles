@@ -3,7 +3,7 @@ set number relativenumber
 set idearefactormode=keep
 set surround
 set ideajoin
-set scrolloff=8
+set scrolloff=14
 set colorcolumn=120
 
 
