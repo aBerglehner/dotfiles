@@ -10,7 +10,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/dotfiles ~/Documents ~/Documents/coding ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d | fzf --preview 'tmux ls')
+	selected=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d | fzf --preview 'tmux ls')
 fi
 
 if [[ -z $selected ]]; then

@@ -124,15 +124,13 @@ alias l='ls -CF'
 #####################################################
 #####################################################
 #own alias
-alias aptup='sudo apt update && sudo apt upgrade -y'
+alias ,aptup='sudo apt update && sudo apt upgrade -y'
 alias c='clear'
 alias vim='nvim'
 alias eixt='exit'
 alias la="ls -lah --group | awk 'BEGIN {print \"Permission\tSize\tMonth\tDay\tTime\tName\"} NR==1 {print} NR>1 {if (\$1 ~ /^d/) {print \"\033[34m\" \$1 \"\t\" \$5 \"\t\" \$6 \"\t\" \$7 \"\t\" \$8 \"\t\" \$9 \"\033[0m\"} else {print \$1 \"\t\" \$5 \"\t\" \$6 \"\t\" \$7 \"\t\" \$8 \"\t\" \$9}}' | awk 'NR==2 {save=\$0; next}; {print} END{print save, \"| time now: \", strftime(\"%d %b %R\")}' | awk '\$1 ~ /total/ {print \"________________\"} {print}'"
 alias rm='rm -i'
-alias dateweek='date +%V'
-alias datewee='date +%V'
-alias datewe='date +%V'
+alias ,dateweek='date +%V'
 alias layzgit='lazygit'
 alias lazy='lazygit'
 alias lg='lazygit'
@@ -146,53 +144,38 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 #yarn alias
-alias yarnInt="rm -rf node_modules/.yarn-integrity && yarn install"
-alias yarnint="rm -rf node_modules/.yarn-integrity && yarn install"
-alias yarnNode="rm -rf node_modules && yarn install"
-alias yarnnode="rm -rf node_modules && yarn install"
+alias ,yarnint="rm -rf node_modules/.yarn-integrity && yarn install"
+alias ,yarnnode="rm -rf node_modules && yarn install"
 
 #git alias
-alias gitdev="git checkout develop"
-alias gitDev="git checkout develop"
-alias gits="git status -s"
+alias ,gitdev="git checkout develop"
+alias ,gits="git status -s"
 
 #setup
-alias setA='vim ~/.zshrc'
-alias seta='vim ~/.zshrc'
-alias ez='vim ~/.zshrc'
-alias sz='source ~/.zshrc'
+alias ,setA='vim ~/.zshrc'
+alias ,ez='vim ~/.zshrc'
+alias ,sz='source ~/.zshrc'
 
 #cheatsheets
 #add them too cht
-alias vimC='vim ~/dotfiles/cheatSheets/vim-cheatsheet.txt'
-alias vimc='vim ~/dotfiles/cheatSheets/vim-cheatsheet.txt'
-alias gitC='vim ~/dotfiles/cheatSheets/git.txt'
-alias gitc='vim ~/dotfiles/cheatSheets/git.txt'
-alias lC='vim ~/dotfiles/cheatSheets/linux.txt'
-alias lc='vim ~/dotfiles/cheatSheets/linux.txt'
-alias javaCheat='vim ~/dotfiles/cheatSheets/java.txt'
-alias javacheat='vim ~/dotfiles/cheatSheets/java.txt'
-alias viteC='vim ~/dotfiles/cheatSheets/vite.txt'
-alias vitec='vim ~/dotfiles/cheatSheets/vite.txt'
-alias restC='vim ~/dotfiles/cheatSheets/rest.txt'
-alias restc='vim ~/dotfiles/cheatSheets/rest.txt'
-alias npmc='vim ~/dotfiles/cheatSheets/npm.txt'
-alias comg='vim ~/dotfiles/cheatSheets/commitGuide.txt'
-alias comG='vim ~/dotfiles/cheatSheets/commitGuide.txt'
+alias ,vimc='vim ~/dotfiles/cheatSheets/vim-cheatsheet.txt'
+alias ,gitc='vim ~/dotfiles/cheatSheets/git.txt'
+alias ,lC='vim ~/dotfiles/cheatSheets/linux.txt'
+alias ,javacheat='vim ~/dotfiles/cheatSheets/java.txt'
+alias ,vitec='vim ~/dotfiles/cheatSheets/vite.txt'
+alias ,restc='vim ~/dotfiles/cheatSheets/rest.txt'
+alias ,npmc='vim ~/dotfiles/cheatSheets/npm.txt'
+alias ,comg='vim ~/dotfiles/cheatSheets/commitGuide.txt'
 
 #plan alias
-alias plano='awk "NR > 15 && /^[^*+-=]/" /home/alex/Documents/notes/.plan | awk "{print NR \":  \" \$0}" | head -n -1 | awk "{printf \$1 \"\\t\"}{ s = \"\"; for (i = 2; i <= NF; i++) s = s \$i \" \"; print s }"'
-alias plnao='awk "NR > 15 && /^[^*+-=]/" /home/alex/Documents/notes/.plan | awk "{print NR \":  \" \$0}" | head -n -1 | awk "{printf \$1 \"\\t\"}{ s = \"\"; for (i = 2; i <= NF; i++) s = s \$i \" \"; print s }"'
-alias planc="awk 'NR > 15 && /^[*+=]/' /home/alex/Documents/notes/.plan"
-alias plnac="awk 'NR > 15 && /^[*+=]/' /home/alex/Documents/notes/.plan"
-alias pland="awk 'NR > 15 && /^[-]/' /home/alex/Documents/notes/.plan"
-alias plnad="awk 'NR > 15 && /^[-]/' /home/alex/Documents/notes/.plan"
+alias ,plano='awk "NR > 15 && /^[^*+-=]/" /home/alex/Documents/notes/.plan | awk "{print NR \":  \" \$0}" | head -n -1 | awk "{printf \$1 \"\\t\"}{ s = \"\"; for (i = 2; i <= NF; i++) s = s \$i \" \"; print s }"'
+alias ,planc="awk 'NR > 15 && /^[*+=]/' /home/alex/Documents/notes/.plan"
+alias ,pland="awk 'NR > 15 && /^[-]/' /home/alex/Documents/notes/.plan"
 
 #browser alias
-alias l8='start microsoft-edge:https://localhost:8443/'
-alias l3='start microsoft-edge:http://localhost:3000'
-alias l31='start microsoft-edge:http://localhost:3001'
-alias l32='start microsoft-edge:http://localhost:3002'
+alias ,l8='start microsoft-edge:https://localhost:8443/'
+alias ,l3='start microsoft-edge:http://localhost:3000'
+alias ,l31='start microsoft-edge:http://localhost:3001'
 
 #pushd popd dirs
 alias gd=pushd
@@ -201,29 +184,29 @@ alias slurp='pushd - && pushd'
 alias dirs='dirs -v'
 
 # tmux
-alias tma='tmux attach -t'
-alias tmn='tmux new -s'
-alias tmm='tmux new -s main'
-alias ttldr='$HOME/tmux-cht.sh'
-alias tks='tmux kill-server'
+alias ,tma='tmux attach -t'
+alias ,tmn='tmux new -s'
+alias ,tmm='tmux new -s main'
+alias ,ttldr='$HOME/tmux-cht.sh'
+alias ,tks='tmux kill-server'
 
 #shell startup speed
-alias perfStartup='for i in $(seq 1 10); do time $SHELL -i -c exit; done'
+alias ,perfStartup='for i in $(seq 1 10); do time $SHELL -i -c exit; done'
 
 #functions
-function take {
+function ,take {
     mkdir -p $1
     cd $1
 }
 
 # [f]uzzy go to any folder on the system
-fcd() {
+,fcd() {
     local dir
     dir=$(fd -t d . "$HOME" | fzf) && cd "$dir"
 }
 
 # [f]uzzy check[o]ut
-fgo() {
+,fgo() {
   git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout
 }
 
@@ -254,7 +237,7 @@ function process_notes_file {
 
 # tennis functions
 # get current log
-function currentLog {
+function ,currentLog {
     local curDir=$(ls -lah $HOME/Documents/coding/vsCode/puppeteer/Tennis-Backtest/backtest/data/logs/ | sort -k 9r | head -1 | awk '{print $NF}')
     (    
         cd "$HOME/Documents/coding/vsCode/puppeteer/Tennis-Backtest/backtest/data/logs/$curDir" 
@@ -270,18 +253,13 @@ function currentLog {
     )
 }
 
-function note {
+function ,note {
     process_notes_file "$HOME/Documents/notes/notes.txt" "$@"
 }
 
-function plan {
+function ,plan {
     process_notes_file "$HOME/Documents/notes/.plan" "$@"
 }
-
-#process_notes_file aliases
-alias plna='plan'
-alias notes='note'
-alias ntoe='note'
 
 
 . "$HOME/.cargo/env"
