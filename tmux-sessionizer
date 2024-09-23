@@ -1,12 +1,5 @@
 #!/usr/bin/bash
 
-#session=$(find ~ ~/Documents/coding ~/Documents/notes ~/Documents/coding/algo -mindepth 1 -maxdepth 2 -type d | fzf)
-#session_name=$(basename "$session" | tr . _)
-#if ! tmux has-session -t "$session_name"; then
-#	tmux new-session -s "$session_name" -c "$session" -d
-#fi
-#tmux switch-client -t "#session_name"
-#
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
@@ -21,12 +14,19 @@ selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-	tmux new-session -s $selected_name -c $selected
-	exit 0
+    tmux new-session -s $selected_name -c $selected \; \
+        send-keys 'vim .' C-m \; \
+        new-window -c $selected \; \
+        select-window -t 2
+    tmux attach-session -t $selected_name
+    exit 0
 fi
 
 if ! tmux has-session -t $selected_name 2>/dev/null; then
-	tmux new-session -ds $selected_name -c $selected
+    tmux new-session -ds $selected_name -c $selected
+    tmux send-keys -t $selected_name 'vim .' C-m
+    tmux new-window -t $selected_name -c $selected
+    tmux select-window -t $selected_name:2
 fi
 
 if [[ -z $TMUX ]]; then
