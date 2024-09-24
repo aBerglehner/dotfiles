@@ -11,6 +11,10 @@ osc52="CopyPaste"
 
 [cursor]
 style={shape="Beam"}
+vi_mode_style={shape="Block"}
+
+[scrolling]
+history = 20000
 
 [window.padding]
 x = 0
@@ -60,3 +64,5 @@ text = "#abb2bf"
 cursor = "#333841"
 text = "#abb2bf"
 
+[mouse]
+hide_when_typing = true
