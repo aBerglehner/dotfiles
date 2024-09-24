@@ -188,6 +188,7 @@ alias ,tma='tmux attach -t'
 alias ,tmn='tmux new -s'
 alias ,tmm='tmux new -s main'
 alias ,ttldr='$HOME/tmux-cht.sh'
+alias ,tsess='$HOME/tmux-sessionizer'
 alias ,tks='tmux kill-server'
 
 #shell startup speed
