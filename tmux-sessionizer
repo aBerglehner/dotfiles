@@ -1,8 +1,16 @@
 #!/usr/bin/bash
 
-# if any argument is passed take current dir
 if [[ $# -eq 1 ]]; then
-    selected=$(pwd)
+
+    if [[ "$1" == "a" || "$1" == "al" || "$1" == "all" ]]; then
+        selected=$(fd -t d . "$HOME" | fzf --preview 'tmux ls')
+    elif [[ "$1" == "z" ]]; then
+        selected=$(zoxide query -l | fzf --preview 'tmux ls')
+    else
+        # if anything else take current directory
+        selected=$(pwd)
+    fi
+
 else
 	selected=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d | fzf --preview 'tmux ls')
 fi
@@ -11,7 +19,9 @@ if [[ -z $selected ]]; then
 	exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+prefix_name=$(dirname "$selected" | tr '. ' _ | xargs basename)
+name=$(basename "$selected" | tr '. ' _)
+selected_name="$prefix_name-$name"
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then

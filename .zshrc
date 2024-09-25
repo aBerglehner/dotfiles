@@ -160,7 +160,7 @@ alias ,sz='source ~/.zshrc'
 #add them too cht
 alias ,vimc='vim ~/dotfiles/cheatSheets/vim-cheatsheet.txt'
 alias ,gitc='vim ~/dotfiles/cheatSheets/git.txt'
-alias ,lC='vim ~/dotfiles/cheatSheets/linux.txt'
+alias ,lc='vim ~/dotfiles/cheatSheets/linux.txt'
 alias ,javacheat='vim ~/dotfiles/cheatSheets/java.txt'
 alias ,vitec='vim ~/dotfiles/cheatSheets/vite.txt'
 alias ,restc='vim ~/dotfiles/cheatSheets/rest.txt'
