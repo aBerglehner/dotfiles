@@ -261,6 +261,15 @@ function ,note {
 }
 
 function ,plan {
+    local plan_file="./.plan"
+    if [[ -f "$plan_file" ]]; then
+        process_notes_file "$plan_file" "$@"
+    else
+        process_notes_file "$HOME/Documents/notes/.plan" "$@"
+    fi
+}
+
+function ,gplan {
     process_notes_file "$HOME/Documents/notes/.plan" "$@"
 }
 
