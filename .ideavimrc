@@ -32,6 +32,15 @@ nmap <leader>p "+p
 vmap <leader>P "+P
 vmap <leader>P "+P
 
+
+/*
+to find vim shortcuts
+:actionlist
+:actionlist replace
+ */
+
+
+
 nmap H :action PreviousTab<CR>
 nmap L :action NextTab<CR>
 nmap <leader>bd :action CloseEditor<CR>
@@ -41,8 +50,11 @@ nmap <leader>/ :action FindInPath<CR>
 nmap <leader>sg :action FindInPath<CR>
 nmap <leader>fr :action RecentFiles<CR>
 nmap <leader>sl :action RecentLocations<CR>
+nmap <leader>sr :action ReplaceInPath<CR>
 
-nmap <C-e> :action ShowBookmarks<CR>
+nmap <leader>fd :action ActivateDatabaseToolWindow<CR>
+
+nmap <C-a> :action ShowBookmarks<CR>
 nmap <leader>a :action ToggleBookmark<CR>
 
 nmap <leader>g :action Git.Menu<CR>

@@ -248,6 +248,8 @@ function ,currentLog {
 
     if [ $1 -z ]; then
         tail -n 40 $file 
+    elif [ $1 -lt 300 ]; then
+        tail -n $1 $file 
     else
         cat $file
     fi

@@ -4,7 +4,7 @@ decorations = "none"
 dynamic_padding = true
 
 [font]
-size=11
+size=10
 
 [terminal]
 osc52="CopyPaste"
