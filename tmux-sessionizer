@@ -2,14 +2,14 @@
 
 if [[ $# -eq 1 ]]; then
 
-    if [[ "$1" == "a" || "$1" == "al" || "$1" == "all" ]]; then
-        selected=$(fd -t d . "$HOME" | fzf --preview 'tmux ls')
-    elif [[ "$1" == "z" ]]; then
-        selected=$(zoxide query -l | fzf --preview 'tmux ls')
-    else
-        # if anything else take current directory
-        selected=$(pwd)
-    fi
+	if [[ "$1" == "a" || "$1" == "al" || "$1" == "all" ]]; then
+		selected=$(fd -t d . "$HOME" | fzf --preview 'tmux ls')
+	elif [[ "$1" == "z" ]]; then
+		selected=$(zoxide query -l | fzf --preview 'tmux ls')
+	else
+		# if anything else take current directory
+		selected=$(pwd)
+	fi
 
 else
 	selected=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d | fzf --preview 'tmux ls')
@@ -25,19 +25,19 @@ selected_name="$prefix_name-$name"
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected \; \
-        send-keys 'vim .' C-m \; \
-        new-window -c $selected \; \
-        select-window -t 2
-    tmux attach-session -t $selected_name
-    exit 0
+	tmux new-session -s $selected_name -c $selected \; \
+		send-keys 'vim .' C-m \; \
+		new-window -c $selected -n cli \; \
+		select-window -t 2
+	tmux attach-session -t $selected_name
+	exit 0
 fi
 
 if ! tmux has-session -t $selected_name 2>/dev/null; then
-    tmux new-session -ds $selected_name -c $selected
-    tmux send-keys -t $selected_name 'vim .' C-m
-    tmux new-window -t $selected_name -c $selected
-    tmux select-window -t $selected_name:2
+	tmux new-session -ds $selected_name -c $selected
+	tmux send-keys -t $selected_name 'vim .' C-m
+	tmux new-window -t $selected_name -c $selected -n cli
+	tmux select-window -t $selected_name:2
 fi
 
 if [[ -z $TMUX ]]; then

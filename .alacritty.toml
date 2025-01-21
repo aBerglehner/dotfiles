@@ -4,7 +4,7 @@ decorations = "none"
 dynamic_padding = true
 
 [font]
-size=10
+size=9.6
 
 [terminal]
 osc52="CopyPaste"
@@ -20,38 +20,6 @@ history = 20000
 x = 0
 y = 0
 
-[colors.bright]
-black = "#3e4452"
-blue = "#61afef"
-cyan = "#56b6c2"
-green = "#98c379"
-magenta = "#c678dd"
-red = "#be5046"
-white = "#5c6370"
-yellow = "#d19a66"
-
-[colors.cursor]
-cursor = "#528bff"
-text = "#0b0b0b"
-
-[colors.footer_bar]
-background = "#282c34"
-foreground = "#abb2bf"
-
-[colors.normal]
-black = "#24272e"
-blue = "#61afef"
-cyan = "#56b6c2"
-green = "#98c379"
-magenta = "#c678dd"
-red = "#e06c75"
-white = "#abb2bf"
-yellow = "#e5c07b"
-
-[colors.primary]
-background = "#24272e"
-foreground = "#abb2bf"
-
 [colors.search.matches]
 background = "#e5c07b"
 foreground = "#3e4452"
@@ -66,3 +34,95 @@ text = "#abb2bf"
 
 [mouse]
 hide_when_typing = true
+
+[colors.cursor]
+cursor = "#528bff"
+text = "#0b0b0b"
+
+[colors.footer_bar]
+background = "#282c34"
+foreground = "#abb2bf"
+
+# option 1
+#
+# [colors.primary]
+# background = "#24272e"
+# foreground = "#abb2bf"
+#
+# [colors.normal]
+# black = "#24272e"
+# blue = "#61afef"
+# cyan = "#56b6c2"
+# green = "#98c379"
+# magenta = "#c678dd"
+# red = "#e06c75"
+# white = "#abb2bf"
+# yellow = "#e5c07b"
+#
+# [colors.bright]
+# black = "#3e4452"
+# blue = "#61afef"
+# cyan = "#56b6c2"
+# green = "#98c379"
+# magenta = "#c678dd"
+# red = "#be5046"
+# white = "#5c6370"
+# yellow = "#d19a66"
+
+
+
+# option 2
+#
+#
+# [colors.primary]
+# background = "#1e222a" # Dark, slightly bluish-gray background
+# foreground = "#dcdfe4" # Soft white text
+#
+# [colors.normal]
+# black = "#1e222a"   # Dark background-matching black
+# red = "#f07178"     # Soft coral red
+# green = "#c3e88d"   # Light lime green
+# yellow = "#ffcb6b"  # Warm golden yellow
+# blue = "#82aaff"    # Vibrant sky blue
+# magenta = "#c792ea" # Light purple-magenta
+# cyan = "#89ddff"    # Bright cyan
+# white = "#dcdfe4"   # Same as foreground for consistency
+#
+# [colors.bright]
+# black = "#2c323c"   # Slightly brighter dark gray
+# red = "#f78c6c"     # Warm orange-red
+# green = "#c3e88d"   # Slightly brighter lime green
+# yellow = "#ffd580"  # Softer, pastel yellow
+# blue = "#82aaff"    # Same vibrant sky blue
+# magenta = "#d4bfff" # Lavender-like purple
+# cyan = "#89ddff"    # Bright cyan
+# white = "#ffffff"   # Pure white
+
+
+
+# option 3
+#
+#
+[colors.primary]
+background = "#23272e" # A mix between the two backgrounds for a dark but not overwhelming tone
+foreground = "#c5cad3" # Softer and slightly bluish white for better readability
+
+[colors.normal]
+black = "#23272e"   # Matches the background
+red = "#e06c75"     # Coral red from Option 1
+green = "#a3d377"   # Slightly brighter green than Option 1
+yellow = "#e5c07b"  # Warm yellow from Option 1
+blue = "#61aeee"    # A mix of the vibrant blues
+magenta = "#c792ea" # Light purple-magenta from Option 2
+cyan = "#68c2e0"    # A subtle mix of both cyan tones
+white = "#c5cad3"   # Slightly lighter than Option 1 foreground
+
+[colors.bright]
+black = "#2c323c"   # From Option 2, slightly brighter dark gray
+red = "#f07178"     # Coral red from Option 2
+green = "#c3e88d"   # Brighter lime green from Option 2
+yellow = "#ffcb6b"  # Golden yellow from Option 2
+blue = "#82aaff"    # Vibrant sky blue from Option 2
+magenta = "#d4bfff" # Lavender purple from Option 2
+cyan = "#89ddff"    # Bright cyan from Option 2
+white = "#e6e9ef"   # A soft bright white to balance out the tones

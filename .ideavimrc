@@ -57,7 +57,7 @@ nmap <leader>fd :action ActivateDatabaseToolWindow<CR>
 nmap <C-a> :action ShowBookmarks<CR>
 nmap <leader>a :action ToggleBookmark<CR>
 
-nmap <leader>g :action Git.Menu<CR>
+nmap <leader>g :action Generate<CR>
 nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
 
 nmap gI :action GotoImplementation<CR>

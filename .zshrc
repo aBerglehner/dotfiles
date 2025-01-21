@@ -303,3 +303,8 @@ export PATH="$HOME/.tmux.conf/bin:$PATH"
 
 #z -> zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+. "$HOME/.atuin/bin/env"
+
+# bun completions
+[ -s "/home/alex/.bun/_bun" ] && source "/home/alex/.bun/_bun"
