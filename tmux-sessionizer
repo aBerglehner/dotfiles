@@ -7,8 +7,14 @@ if [[ $# -eq 1 ]]; then
 	elif [[ "$1" == "z" ]]; then
 		selected=$(zoxide query -l | fzf --preview 'tmux ls')
 	else
-		# if anything else take current directory
-		selected=$(pwd)
+		#take first argument as path if it is longer than 9 chars
+		INPUT_LEN=$(echo $1 | wc -c)
+		if [[ "$INPUT_LEN" -gt 9 ]]; then
+			selected=$1
+		else
+			# if anything else take current directory
+			selected=$(pwd)
+		fi
 	fi
 
 else
