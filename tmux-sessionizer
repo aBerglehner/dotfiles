@@ -2,23 +2,28 @@
 
 if [[ $# -eq 1 ]]; then
 
-	if [[ "$1" == "a" || "$1" == "al" || "$1" == "all" ]]; then
-		selected=$(fd -t d . "$HOME" | fzf --preview 'tmux ls')
-	elif [[ "$1" == "z" ]]; then
-		selected=$(zoxide query -l | fzf --preview 'tmux ls')
+	#take first argument as path if it is longer than 9 chars
+	INPUT_LEN=$(echo $1 | wc -c)
+	if [[ "$INPUT_LEN" -gt 9 ]]; then
+		selected=$1
 	else
-		#take first argument as path if it is longer than 9 chars
-		INPUT_LEN=$(echo $1 | wc -c)
-		if [[ "$INPUT_LEN" -gt 9 ]]; then
-			selected=$1
-		else
-			# if anything else take current directory
-			selected=$(pwd)
-		fi
+		# if anything else take current directory
+		selected=$(pwd)
 	fi
 
 else
-	selected=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d | fzf --preview 'tmux ls')
+	#selected=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d | fzf --preview 'tmux ls')
+	MOST_WANTED=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d)
+	ALL=$(fd -t d . "$HOME")
+	ZOXIDE=$(zoxide query -l)
+
+	selected=$(
+		printf "%s\n" "$MOST_WANTED" | fzf --preview 'tmux ls | grep --color=always -iC 50 "$(basename {})" || tmux ls' --prompt 'Most Wanted> ' \
+			--header 'CTRL-A: All / CTRL-Z: Zoxide / CTRL-F: Most Wanted' \
+			--bind "ctrl-z:change-prompt(Zoide> )+reload(zoxide query -l)" \
+			--bind "ctrl-a:change-prompt(All> )+reload(fd -t d . "$HOME")" \
+			--bind "ctrl-f:change-prompt(Most Wanted> )+reload(bash -c 'printf \"%s\n\" \"$MOST_WANTED\"')"
+	)
 fi
 
 if [[ -z $selected ]]; then
