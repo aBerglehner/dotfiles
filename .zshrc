@@ -1,3 +1,6 @@
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+
 
 # Add JBang to environment
 alias j!=jbang
@@ -190,6 +193,9 @@ alias ,tmm='tmux new -s main'
 alias ,ttldr='$HOME/tmux-cht.sh'
 alias ,tsess='$HOME/tmux-sessionizer'
 alias ,tks='tmux kill-server'
+
+# rest
+alias ,hl='rg --passthru'
 
 #shell startup speed
 alias ,perfStartup='for i in $(seq 1 10); do time $SHELL -i -c exit; done'
