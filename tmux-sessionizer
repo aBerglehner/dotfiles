@@ -12,7 +12,7 @@ if [[ $# -eq 1 ]]; then
 	fi
 
 else
-	MOST_WANTED=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/golang ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/algo/adventofcode ~/Documents/coding/algo/adventofcode/go/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d)
+	MOST_WANTED=$(find ~/dotfiles ~/Downloads ~/Documents ~/Documents/coding ~/Documents/coding/interpreter/ ~/Documents/coding/golang ~/Documents/coding/playground ~/Documents/coding/vsCode/puppeteer/ ~/Documents/coding/algo/ ~/Documents/coding/algo/adventofcode ~/Documents/coding/algo/adventofcode/go/ ~/Documents/coding/fullstack/ -mindepth 0 -maxdepth 1 -type d)
 
 	selected=$(
 		printf "%s\n" "$MOST_WANTED" | fzf --preview 'tmux ls | grep --color=always -iC 50 "$(basename {})" || tmux ls' --prompt 'Most Wanted> ' \
