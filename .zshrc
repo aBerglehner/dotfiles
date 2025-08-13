@@ -165,9 +165,6 @@ alias ,vimc='vim ~/dotfiles/cheatSheets/vim-cheatsheet.txt'
 alias ,gitc='vim ~/dotfiles/cheatSheets/git.txt'
 alias ,lc='vim ~/dotfiles/cheatSheets/linux.txt'
 alias ,javacheat='vim ~/dotfiles/cheatSheets/java.txt'
-alias ,vitec='vim ~/dotfiles/cheatSheets/vite.txt'
-alias ,restc='vim ~/dotfiles/cheatSheets/rest.txt'
-alias ,npmc='vim ~/dotfiles/cheatSheets/npm.txt'
 alias ,comg='vim ~/dotfiles/cheatSheets/commitGuide.txt'
 
 #plan alias
@@ -187,9 +184,6 @@ alias slurp='pushd - && pushd'
 alias dirs='dirs -v'
 
 # tmux
-alias ,tma='tmux attach -t'
-alias ,tmn='tmux new -s'
-alias ,tmm='tmux new -s main'
 alias ,ttldr='$HOME/tmux-cht.sh'
 alias ,tsess='$HOME/tmux-sessionizer'
 alias ,tks='tmux kill-server'
