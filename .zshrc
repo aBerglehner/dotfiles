@@ -308,3 +308,7 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # bun completions
 [ -s "/home/alex/.bun/_bun" ] && source "/home/alex/.bun/_bun"
+
+
+#slqlite
+export PATH="$PATH:$(go env GOPATH)/bin"
