@@ -150,10 +150,6 @@ alias ...='cd ../..'
 alias ,yarnint="rm -rf node_modules/.yarn-integrity && yarn install"
 alias ,yarnnode="rm -rf node_modules && yarn install"
 
-#git alias
-alias ,gitdev="git checkout develop"
-alias ,gits="git status -s"
-
 #setup
 alias ,setA='vim ~/.zshrc'
 alias ,ez='vim ~/.zshrc'
