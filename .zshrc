@@ -137,8 +137,6 @@ alias ,dateweek='date +%V'
 alias layzgit='lazygit'
 alias lazy='lazygit'
 alias lg='lazygit'
-alias idea='intellij-idea-community'
-alias idae='intellij-idea-community'
 alias jq='jq --color-output'
 alias less='less -R'
 
@@ -146,12 +144,7 @@ alias less='less -R'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-#yarn alias
-alias ,yarnint="rm -rf node_modules/.yarn-integrity && yarn install"
-alias ,yarnnode="rm -rf node_modules && yarn install"
-
 #setup
-alias ,setA='vim ~/.zshrc'
 alias ,ez='vim ~/.zshrc'
 alias ,sz='source ~/.zshrc'
 
@@ -168,11 +161,6 @@ alias ,plano='awk "NR > 15 && /^[^*+-=]/" /home/alex/Documents/notes/.plan | awk
 alias ,planc="awk 'NR > 15 && /^[*+=]/' /home/alex/Documents/notes/.plan"
 alias ,pland="awk 'NR > 15 && /^[-]/' /home/alex/Documents/notes/.plan"
 
-#browser alias
-alias ,l8='start microsoft-edge:https://localhost:8443/'
-alias ,l3='start microsoft-edge:http://localhost:3000'
-alias ,l31='start microsoft-edge:http://localhost:3001'
-
 #pushd popd dirs
 alias gd=pushd
 alias pd=popd
@@ -184,27 +172,19 @@ alias ,ttldr='$HOME/tmux-cht.sh'
 alias ,tsess='$HOME/tmux-sessionizer'
 alias ,tks='tmux kill-server'
 
-# rest
-alias ,hl='rg --passthru'
-
 #shell startup speed
 alias ,perfStartup='for i in $(seq 1 10); do time $SHELL -i -c exit; done'
 
-#functions
-function ,take {
-    mkdir -p $1
-    cd $1
-}
+#fzf
+#fuzzy find text in any subfolder -> returns the file path of it
+alias ,frg='fzf --ansi --disabled \
+  --bind "change:reload:rg -l --hidden --smart-case {q} || true" \
+  --preview "rg -C 10 --color=always --line-number --smart-case {q} {}"'
 
 # [f]uzzy go to any folder on the system
 ,fcd() {
     local dir
     dir=$(fd -t d . "$HOME" | fzf) && cd "$dir"
-}
-
-# [f]uzzy check[o]ut
-,fgo() {
-  git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout
 }
 
 function process_notes_file {
@@ -291,7 +271,7 @@ bindkey '^r' _atuin_search_widget
 
 #fzf
 bindkey -s '^F' "$HOME/tmux-sessionizer\n"
-export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
+export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border'
 export FZF_TMUX_OPTS='-p80%,60%'
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --exclude node_modules'
@@ -306,5 +286,5 @@ eval "$(zoxide init --cmd cd zsh)"
 [ -s "/home/alex/.bun/_bun" ] && source "/home/alex/.bun/_bun"
 
 
-#slqlite
+#to be able to use go install . programms -> should live in /go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
