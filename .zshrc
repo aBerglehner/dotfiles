@@ -133,7 +133,6 @@ alias vim='nvim'
 alias eixt='exit'
 alias la="ls -lah --group | awk 'BEGIN {print \"Permission\tSize\tMonth\tDay\tTime\tName\"} NR==1 {print} NR>1 {if (\$1 ~ /^d/) {print \"\033[34m\" \$1 \"\t\" \$5 \"\t\" \$6 \"\t\" \$7 \"\t\" \$8 \"\t\" \$9 \"\033[0m\"} else {print \$1 \"\t\" \$5 \"\t\" \$6 \"\t\" \$7 \"\t\" \$8 \"\t\" \$9}}' | awk 'NR==2 {save=\$0; next}; {print} END{print save, \"| time now: \", strftime(\"%d %b %R\")}' | awk '\$1 ~ /total/ {print \"________________\"} {print}'"
 alias rm='rm -i'
-alias ,dateweek='date +%V'
 alias layzgit='lazygit'
 alias lazy='lazygit'
 alias lg='lazygit'
@@ -153,8 +152,6 @@ alias ,sz='source ~/.zshrc'
 alias ,vimc='vim ~/dotfiles/cheatSheets/vim-cheatsheet.txt'
 alias ,gitc='vim ~/dotfiles/cheatSheets/git.txt'
 alias ,lc='vim ~/dotfiles/cheatSheets/linux.txt'
-alias ,javacheat='vim ~/dotfiles/cheatSheets/java.txt'
-alias ,comg='vim ~/dotfiles/cheatSheets/commitGuide.txt'
 
 #plan alias
 alias ,plano='awk "NR > 15 && /^[^*+-=]/" /home/alex/Documents/notes/.plan | awk "{print NR \":  \" \$0}" | head -n -1 | awk "{printf \$1 \"\\t\"}{ s = \"\"; for (i = 2; i <= NF; i++) s = s \$i \" \"; print s }"'
@@ -168,7 +165,7 @@ alias slurp='pushd - && pushd'
 alias dirs='dirs -v'
 
 # tmux
-alias ,ttldr='$HOME/tmux-cht.sh'
+#alias ,ttldr='$HOME/tmux-cht.sh'
 alias ,tsess='$HOME/tmux-sessionizer'
 alias ,tks='tmux kill-server'
 
