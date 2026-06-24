@@ -246,6 +246,14 @@ function ,gplan {
     process_notes_file "$HOME/Documents/notes/.plan" "$@"
 }
 
+##change audio output
+function ,audioSwitch {
+    audioDevice=$(pactl list short sinks | fzf | awk '{print $1}')
+    for i in $(pactl list short sink-inputs | awk '{print $1}'); do
+        pactl move-sink-input "$i" "$audioDevice"
+    done
+}
+
 
 . "$HOME/.cargo/env"
 
